@@ -23,10 +23,18 @@
     <body class="container">
         <div class="">
             <h1>Detalhes: </h1>
+            <div class="card bg-primary text-white mb-3" style="width: 25rem;">
+                <div class="card-body">
+                    <p>Id: {{ $conta->id}}</p>
+                    <p>nome: {{ $conta->nome}}</p>
+                    <p>valor: {{ 'R$ ' . number_format($conta->valor, 2, ',', '.') }}</p>
+                    <p>vencimento: {{  \Carbon\Carbon::parse($conta->vencimento)->tz('America/Sao_Paulo')->format('d/m/Y') }}</p>
+                    <p>Cadastro: {{  \Carbon\Carbon::parse($conta->created_at)->tz('America/Sao_Paulo')->format('d/m/Y') }}</p>
+                    <p>Atualização: {{  \Carbon\Carbon::parse($conta->upated_at)->tz('America/Sao_Paulo')->format('d/m/Y') }}</p>
+                </div>
+            </div>
            <div class="">
-            @if(session('success'))
-                <p class="alert alert-success"> {{ session('success') }} </p>
-            @endif
+            
                 <a href="{{ route('conta.index') }}">
                     <button class="btn btn-outline-danger">
                         Voltar

@@ -12,16 +12,20 @@ class ContaController extends Controller
 {
     public function index() // Listar as contas
     {
-        return view('conta.index');
+        // Carrega os valores da tabela
+        $contas = Conta::orderBy('valor')->get();
+
+        return view('conta.index', ['contas' => $contas]);
     }
-    public function create() // Cadastrar no banco de dados
+    public function create() // Lista todos
     {
         return view('conta.create');
     }
 
-    public function show() // Detalhes da conta
+    public function show( Conta $conta) // Detalhes da conta
     {
-        return view('conta.show');
+        // dd($conta);
+        return view('conta.show', ['conta' => $conta]);
     }
 
     public function store(ContaRequest $request) // Carregar o formulário cadastro
@@ -35,7 +39,7 @@ class ContaController extends Controller
         // dd($conta);
 
         // Redirecionar
-        return redirect()->route('conta.show')->with('success', 'Conta cadastrada com sucesso');
+        return redirect()->route('conta.index')->with('success', 'Conta cadastrada com sucesso');
     }
 
     public function edit() // Cadastrar no banco de dados

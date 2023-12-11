@@ -1,3 +1,30 @@
+### Criando aplicações Laravel
+
+#### Ultimo visto
+```
+https://www.youtube.com/watch?v=WPYDRXWwy2A&list=PLmY5AEiqDWwDOQa-j8lPAdWDUvN6Rbyqo&index=10
+```
+* Instalando Laravel Global com composer
+```
+composer global require laravel/installer
+```
+* 1 Criando projeto com composer
+```
+composer create-project laravel/laravel
+```
+* ou 2 Criando aplicação com laravel new app
+```
+laravel new app
+```
+
+* Criando aplicação com laravel new app
+```
+laravel new app
+```
+
+* entrando na pasta e rodando primeiro comando
+    * cd nomeDoProjeto
+    * php artisan serve
 
 #### Criando o projeto
 * Instalando Laravel Global com composer
@@ -26,6 +53,7 @@ laravel new app
 #### Criando tabela
 * php artisan make:migration create_contas_table
 * php artisan migrate
+
 #### Principais comandos
 * 0. Atualizar dependencias ou depois que o projeto baixado
 ```
