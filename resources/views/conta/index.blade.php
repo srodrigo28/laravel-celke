@@ -55,12 +55,14 @@
                         <a href="{{ route('conta.show', ['conta' => $conta->id ]) }}">
                             <button class="btn btn-outline-success"> Detalhes </button>
                         </a>
-                        <a href="{{ route('conta.edit') }}">
+                        <a href="{{ route('conta.edit', ['conta' => $conta->id ]) }}">
                             <button class="btn btn-outline-warning"> Editar </button>
                         </a>
-                        <a href="{{ route('conta.destroy') }}">
-                            <button class="btn btn-outline-danger"> Apagar </button>
-                        </a>
+                        <form action="{{route('conta.destroy', ['conta' => $conta->id ])}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" onclick="return confirm('Tem certeza?')" class="btn btn-outline-danger">Apagar</button>
+                        </form>
                     </td>
                 </tr>
                 @empty

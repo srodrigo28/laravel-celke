@@ -2,7 +2,7 @@
 
 #### Ultimo visto
 ```
-https://www.youtube.com/watch?v=WPYDRXWwy2A&list=PLmY5AEiqDWwDOQa-j8lPAdWDUvN6Rbyqo&index=10
+https://www.youtube.com/watch?v=gewDfn2E2mc&list=PLmY5AEiqDWwDOQa-j8lPAdWDUvN6Rbyqo&index=13
 ```
 * Instalando Laravel Global com composer
 ```

@@ -42,18 +42,31 @@ class ContaController extends Controller
         return redirect()->route('conta.index')->with('success', 'Conta cadastrada com sucesso');
     }
 
-    public function edit() // Cadastrar no banco de dados
+    public function edit(Conta $conta) // Cadastrar no banco de dados
     {
-        return view('conta.edit');
+        
+        return view('conta.edit', ['conta' => $conta]);
     }
 
-    public function update() // Atualizar formulário editar
+    public function update(ContaRequest $request, Conta $conta) // Atualizar formulário editar
     {
-        dd("Editando...");
+        $request->validated();
+        // dd("Editando...", $request);
+        $conta->update([
+            'nome'      => $request->nome,
+            'valor'     => $request->valor,
+            'vencimento' => $request->vencimento,
+        ]);
+        // Redirecionar
+        return redirect()->route('conta.show', [ 'conta' => $conta->id ])->with
+        ('success', 'Conta atualizada com sucesso');
     }
 
-    public function destroy() // Atualizar formulário editar
+    public function destroy(Conta $conta) // Atualizar formulário editar
     {
-        dd("apagar");
+            // dd($conta->nome);
+            $conta->delete();
+            // Redirecionar
+            return redirect()->route('conta.index', [ 'conta' => $conta->id ])->with ('success', 'Conta Apagada com sucesso');
     }
 }

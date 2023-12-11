@@ -23,6 +23,9 @@
     <body class="container">
         <div class="">
             <h1>Detalhes: </h1>
+                @if(session('success'))
+                    <p class="alert alert-success"> {{ session('success') }} </p>
+                @endif
             <div class="card bg-primary text-white mb-3" style="width: 25rem;">
                 <div class="card-body">
                     <p>Id: {{ $conta->id}}</p>
@@ -34,11 +37,11 @@
                 </div>
             </div>
            <div class="">
-            
+                <a href="{{ route('conta.edit', ['conta' => $conta->id ]) }}">
+                    <button class="btn btn-outline-warning"> Editar </button>
+                </a>
                 <a href="{{ route('conta.index') }}">
-                    <button class="btn btn-outline-danger">
-                        Voltar
-                    </button>
+                    <button class="btn btn-outline-danger"> Voltar </button>
                 </a>
            </div>
         </div>
